@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Contact & Devis - TCS Informatique</title>
+    
+    <link rel="icon" type="image/x-icon" href="tcs1.png"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "secondary": "#4f46e5",
+                        "background-light": "#E5E7EB", 
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            'from': { opacity: '0', transform: 'translateY(20px)' },
+                            'to': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animate-on-scroll.animate-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #1152d4, #4f46e5);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200/80 dark:border-gray-700/80 px-4 sm:px-10 py-3 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+    <a href="../tcs.html" class="flex items-center gap-4 text-gray-900 dark:text-gray-100">
+        <div class="size-20 text-primary">
+            <img src="tcs1.png" alt="Logo TCS" class="object-contain h-full w-full">
+        </div>
+        <p class="text-lg font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-gray-100">TCS Informatique</p>
+    </a>
+
+    <div id="mobile-menu" class="hidden lg:flex flex-1 justify-end gap-8">
+        <div class="flex items-center gap-9">
+            <a class="text-sm font-medium leading-normal text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="../tcs.html#services">Services</a>
+            <a class="text-sm font-medium leading-normal text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="../tcs.html#laptops">PC Portables</a>
+            <a class="text-sm font-medium leading-normal text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="../tcs.html#accessoires">Accessoires</a>
+            <a class="text-sm font-medium leading-normal text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="../tcs.html#contact">Contact</a>
+        </div>
+        <a href="../tcs.html#contact">
+            <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-all duration-300 hover:scale-105">
+                <span class="truncate">Nous Contacter</span>
+            </button>
+        </a>
+    </div>
+
+    <button id="mobile-menu-button" class="lg:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800">
+        <span class="material-symbols-outlined">menu</span>
+    </button>
+</header>
+
+<main class="flex-1">
+    <section class="relative py-16 sm:py-24 bg-background-light dark:bg-background-dark overflow-hidden min-h-[80vh] flex items-center">
+        
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+            <div class="absolute top-[10%] left-[5%] w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float"></div>
+            <div class="absolute bottom-[10%] right-[5%] w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
+        </div>
+
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+                
+                <div class="flex flex-col gap-8 animate-on-scroll">
+                    <div>
+                        <span class="inline-flex items-center gap-2 rounded-full bg-green-100 dark:bg-green-900/30 px-3 py-1 text-sm font-medium text-green-600 dark:text-green-400 mb-4">
+                            <span class="relative flex h-2 w-2">
+                              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                              <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                            </span>
+                            Ouvert Aujourd'hui
+                        </span>
+                        <h1 class="text-4xl font-black leading-tight tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
+                            Besoin d'un expert <br>
+                            <span class="text-gradient">Immédiatement ?</span>
+                        </h1>
+                        <p class="mt-6 text-lg text-gray-600 dark:text-gray-400">
+                            Ne perdez pas de temps avec des formulaires compliqués. Passez nous voir directement en boutique ou appelez-nous pour un diagnostic express.
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col gap-6 mt-4 border-l-2 border-gray-200 dark:border-gray-800 pl-6">
+                        <div class="flex flex-col gap-1">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">bolt</span>
+                                Sans Rendez-vous
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-400">Venez quand vous voulez, nous prenons en charge votre appareil de suite.</p>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">psychology</span>
+                                Devis Gratuit en Direct
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-400">Obtenez une estimation précise du coût et des délais en face à face.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="animate-on-scroll flex flex-col gap-4" data-delay="200">
+                    
+                    <a href="tel:+33+330238549151" class="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-900 border border-primary/20 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-primary/20">
+                        <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                            <span class="material-symbols-outlined text-9xl text-primary">call</span>
+                        </div>
+                        <div class="relative p-8 flex items-center gap-6">
+                            <div class="flex-shrink-0 size-16 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                                <span class="material-symbols-outlined text-3xl">call</span>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wide">Appelez-nous</p>
+                                <p class="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white mt-1 group-hover:text-primary transition-colors">+33 02.38.54.91.51</p>
+                                <p class="text-sm text-green-600 dark:text-green-400 font-medium mt-1">Réponse immédiate</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="https://www.google.com/maps/place/106+Rue+du+Faubourg+Bannier,+45000+Orl%C3%A9ans/@47.9140984,1.8971557,17z/data=!3m1!4b1!4m6!3m5!1s0x47e4fad7d78e2d11:0x46b5fceaa88a87cf!8m2!3d47.9140948!4d1.8997306!16s%2Fg%2F11c3q56yvm?entry=ttu&g_ep=EgoyMDI1MTExNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                        <div class="relative p-8 flex items-center gap-6">
+                            <div class="flex-shrink-0 size-16 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                <span class="material-symbols-outlined text-3xl">storefront</span>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wide">Passez en Boutique</p>
+                                <p class="text-lg font-bold text-gray-900 dark:text-white mt-1">106 Rue du Faubourg Bannier</p>
+                                <p class="text-base text-gray-600 dark:text-gray-400">45000 Orléans</p>
+                            </div>
+                            <div class="ml-auto hidden sm:block">
+                                <span class="material-symbols-outlined text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all">arrow_forward_ios</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="mailto:tcsloiret45@hotmail.fr" class="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                        <div class="relative p-8 flex items-center gap-6">
+                            <div class="flex-shrink-0 size-16 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                <span class="material-symbols-outlined text-3xl">mail</span>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wide">Écrivez-nous</p>
+                                <p class="text-lg font-bold text-gray-900 dark:text-white mt-1 break-all">tcsloiret45@hotmail.fr</p>
+                                <p class="text-sm text-gray-500 mt-1">Réponse sous 24h</p>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+</main>
+
+
+<footer class="bg-gray-900 dark:bg-gray-950 border-t border-gray-800">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10 text-gray-300">
+            
+            <div class="col-span-2 md:col-span-1 flex flex-col gap-4">
+                <a href="../tcs.html" class="flex items-center gap-3 text-white">
+                    <div class="size-6 text-primary">
+                        <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H9v-2h6v2zm-3-7l-2.5-2.5L11 7l4 4-4 4-1.5-1.5L12 11z"/></svg>
+                    </div>
+                    <p class="text-lg font-bold leading-tight tracking-[-0.015em]">TCS Informatique</p>
+                </a>
+                <p class="text-sm">Votre expert en réparation et vente informatique à Orléans. Qualité, rapidité et expertise certifiée.</p>
+                <a href="../tcs.html#a-propos" class="text-sm font-semibold text-primary hover:text-primary/80 transition-colors">En savoir plus →</a>
+            </div>
+
+            <div class="flex flex-col gap-3">
+                <h4 class="text-base font-bold text-white mb-2">Navigation</h4>
+                <a href="../tcs.html#services" class="text-sm hover:text-white transition-colors">Services</a>
+                <a href="../tcs.html#laptops" class="text-sm hover:text-white transition-colors">PC Portables</a>
+                <a href="../tcs.html#accessoires" class="text-sm hover:text-white transition-colors">Accessoires</a>
+                <a href="devis.html" class="text-sm hover:text-white transition-colors">Demander un Devis</a>
+            </div>
+
+            <div class="flex flex-col gap-3">
+                <h4 class="text-base font-bold text-white mb-2">Services Clés</h4>
+                <a href="../tcs.html#services" class="text-sm hover:text-white transition-colors">Réparation Ordinateurs</a>
+                <a href="../tcs.html#services" class="text-sm hover:text-white transition-colors">Dépannage Mobiles</a>
+                <a href="../tcs.html#services" class="text-sm hover:text-white transition-colors">Montage PC Gaming</a>
+                <a href="../tcs.html#smartphones" class="text-sm hover:text-white transition-colors">Vente Reconditionné</a>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <h4 class="text-base font-bold text-white mb-2">Contactez-nous</h4>
+                <div class="flex items-center gap-2 text-sm">
+                    <span class="material-symbols-outlined text-primary text-lg">location_on</span>
+                    <p>106 Rue du Faubourg Bannier, 45000 Orléans</p>
+                </div>
+                <div class="flex items-center gap-2 text-sm">
+                    <span class="material-symbols-outlined text-primary text-lg">call</span>
+                    <p>+33 02.38.54.91.51</p>
+                </div>
+                <div class="flex items-center gap-2 text-sm">
+                    <span class="material-symbols-outlined text-primary text-lg">mail</span>
+                    <p>tcsloiret45@hotmail.fr</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="border-t border-gray-800 pt-8 text-center md:flex md:justify-between md:items-center">
+            <p class="text-sm text-gray-500">© 2024 TCS Informatique. Tous droits réservés.</p>
+            <div class="flex justify-center md:justify-end gap-6 mt-4 md:mt-0">
+                 <a href="https://tcsink.fr/content/2-mentions-legales" class="text-sm text-gray-500 hover:text-white transition-colors">Mentions Légales</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</div>
+</div>
+
+<script>
+    // Animation Script
+    document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.dataset.delay || '0';
+                    entry.target.style.transitionDelay = `${delay}ms`;
+                    
+                    entry.target.classList.add('animate-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { 
+            threshold: 0.1
+        });
+        const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+        elementsToAnimate.forEach(el => {
+            observer.observe(el);
+        });
+    });
+</script>
+</body>
+</html>

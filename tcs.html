@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link rel="icon" type="image/x-icon" href="img/tcs1.png"/>
+    <title>TCS Informatique - Réparation et Vente d'Ordinateurs</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "background-light": "#E5E7EB", 
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            'from': { opacity: '0', transform: 'translateY(20px)' },
+                            'to': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animate-on-scroll.animate-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Gradient text helper */
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #1152d4, #4f46e5);
+        }
+        /* Style pour l'animation de défilement infini */
+        @keyframes infinite-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-infinite-scroll {
+            animation: infinite-scroll 25s linear infinite;
+        }
+        /* Pause l'animation au survol */
+        .animate-infinite-scroll:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200/80 dark:border-gray-700/80 px-4 sm:px-10 py-3 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+    <a href="#" class="flex items-center gap-4 text-gray-900 dark:text-gray-100" style="display: flex;">
+        <div class="size-20 text-primary">
+            <img src="img/tcs1.png" alt="Logo TCS" class="object-contain h-full w-full">
+        </div>
+        <p class="text-lg font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-gray-100">TCS Informatique</p>
+    </a>
+
+    <div id="mobile-menu" class="hidden lg:flex flex-1 justify-end gap-8">
+        <div class="flex items-center gap-9">
+            <a class="text-sm font-medium leading-normal text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#services">Services</a>
+            <a class="text-sm font-medium leading-normal text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#laptops">PC Portables</a>
+            <a class="text-sm font-medium leading-normal text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#accessoires">Accessoires</a>
+            <a class="text-sm font-medium leading-normal text-gray-800 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors" href="#contact">Contact</a>
+        </div>
+        <a href="img/devis.html">
+            <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-all duration-300 hover:scale-105">
+                <span class="truncate">Demander un Devis</span>
+            </button>
+        </a>
+    </div>
+
+    <button id="mobile-menu-button" class="lg:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800">
+        <span class="material-symbols-outlined">menu</span>
+    </button>
+</header>
+
+<main class="flex-1">
+
+    <section class="relative bg-background-light dark:bg-background-dark py-16 sm:py-24 overflow-hidden">
+        <img 
+          style="height: 60%; width: auto;"
+          src="img/tel.png" 
+          alt="Décoration" 
+          class="absolute top-50 lg:left-1 opacity-25 dark:opacity-10 hidden lg:block transform -rotate-12" 
+          aria-hidden="true"
+        />
+        <img 
+          style="height: 30%; width: auto; right: -2rem!important; top: 30rem;"
+          src="img/tr.png" 
+          alt="Décoration" 
+          class="absolute lg:right-1 opacity-25 dark:opacity-10 hidden lg:block transform rotate-112" 
+          aria-hidden="true"
+        />
+        <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="flex flex-col gap-6 text-center lg:text-left opacity-0 animate-fade-in-up" style="animation-delay: 200ms;">
+                    <h1 class="text-4xl font-black leading-tight tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
+                        Expert en Réparation et Vente Informatique
+                    </h1>
+                    <p class="text-lg font-normal leading-normal text-gray-600 dark:text-gray-400 opacity-0 animate-fade-in-up" style="animation-delay: 400ms;">
+                        Service rapide et fiable pour tous vos besoins technologiques, des réparations de smartphones aux PC gaming sur mesure.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-4 opacity-0 animate-fade-in-up" style="animation-delay: 600ms;">
+                        <a href="#services" class="flex w-full sm:w-auto min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-all duration-300 hover:scale-105">
+                            <span class="truncate">Voir Nos Services</span>
+                        </a>
+                        <a href="#contact" class="flex w-full sm:w-auto min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary/20 dark:bg-white/10 text-primary dark:text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/30 dark:hover:bg-white/20 transition-all duration-300 hover:scale-105">
+                            <span class="truncate">Nous Contacter</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="w-full h-64 sm:h-80 lg:h-auto lg:aspect-[4/4] bg-center bg-no-repeat bg-cover rounded-xl opacity-0 animate-fade-in-up" 
+                     role="img" 
+                     aria-label="PC Setup" 
+                     style='background-image: url("https://i.pinimg.com/736x/cc/5f/9e/cc5f9e24ede00fccdbb17a4420d5348b.jpg"); border: 1px solid black; animation-delay: 300ms;'>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative bg-background-light dark:bg-background-dark py-16 sm:py-24 overflow-hidden">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col gap-12">
+                <div class="flex flex-col gap-4 text-center animate-on-scroll">
+                    <h2 class="text-3xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white sm:text-4xl">Pourquoi Choisir TCS Informatique?</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">Nous fournissons un service de premier ordre avec un engagement envers la qualité et la satisfaction du client.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="animate-on-scroll flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50 p-6 text-center items-center" data-delay="100">
+                        <div class="flex items-center justify-center size-12 rounded-full bg-primary/10 text-primary">
+                            <span class="material-symbols-outlined text-3xl">bolt</span>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white">Réparation Express</h3>
+                            <p class="text-sm font-normal leading-normal text-gray-600 dark:text-gray-400">Faites réparer vos appareils rapidement et efficacement pour minimiser les temps d'arrêt.</p>
+                        </div>
+                    </div>
+                    <div class="animate-on-scroll flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50 p-6 text-center items-center" data-delay="200">
+                        <div class="flex items-center justify-center size-12 rounded-full bg-primary/10 text-primary">
+                            <span class="material-symbols-outlined text-3xl">workspace_premium</span>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <h3 class="text-lg font-bold leading-tight text-gray-900 dark:text-white">Experts Certifiés</h3>
+                            <p class="text-sm font-normal leading-normal text-gray-600 dark:text-gray-400">Notre équipe est composée de professionnels certifiés avec des années d'expérience.</p>
+                        </div>
+                    </div>
+                    <div class="animate-on-scroll flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50 p-6 text-center items-center" data-delay="300">
+                        <div class="flex items-center justify-center size-12 rounded-full bg-primary/10 text-primary">
+                            <span class="material-symbols-outlined text-3xl">verified_user</span>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <h3 class="text-lg font-bold leading-tight text-gray-900 dark:text-white">Garantie de Qualité</h3>
+                            <p class="text-sm font-normal leading-normal text-gray-600 dark:text-gray-400">Nous soutenons notre travail avec une garantie complète sur toutes les réparations et ventes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 sm:py-24 bg-gray-50 dark:bg-gray-900" id="services">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col gap-4 text-center mb-12 animate-on-scroll">
+                <h2 class="text-3xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white sm:text-4xl">Nos Services</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">Des diagnostics complets aux montages personnalisés, nous couvrons tous vos besoins informatiques.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="flex flex-col gap-8">
+                    <div class="animate-on-scroll flex flex-col gap-3 overflow-hidden rounded-xl bg-white dark:bg-gray-800/50 shadow-sm border border-gray-200 dark:border-gray-800 transition-transform duration-300 hover:-translate-y-2">
+                        <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" 
+                             role="img" 
+                             aria-label="Réparation PC" 
+                             style='background-image: url("https://i.pinimg.com/1200x/4a/bf/6f/4abf6f8fde970c34880d5078af561b70.jpg");'>
+                        </div>
+                        <div class="p-5">
+                            <p class="text-xl font-bold leading-normal text-gray-900 dark:text-white">Réparation Ordinateurs</p>
+                            <p class="text-base font-normal leading-normal text-gray-600 dark:text-gray-400 mt-2">Diagnostics, suppression de virus, mises à niveau matérielles, et plus encore.</p>
+                        </div>
+                    </div>
+                    <div class="animate-on-scroll flex flex-col gap-3 overflow-hidden rounded-xl bg-white dark:bg-gray-800/50 shadow-sm border border-gray-200 dark:border-gray-800 transition-transform duration-300 hover:-translate-y-2" data-delay="200">
+                        <div class="w-full bg-center bg-no-repeat aspect-video bg-cover" 
+                             role="img" 
+                             aria-label="Smartphone Repair" 
+                             style='background-image: url("https://i.pinimg.com/736x/cc/d6/8d/ccd68d2cda51119bee4ef90a36bb4650.jpg");'>
+                        </div>
+                        <div class="p-5">
+                            <p class="text-xl font-bold leading-normal text-gray-900 dark:text-white">Dépannage Mobiles</p>
+                            <p class="text-base font-normal leading-normal text-gray-600 dark:text-gray-400 mt-2">Remplacement d'écran et solutions de batterie experts pour téléphones et tablettes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="animate-on-scroll flex flex-col gap-3 overflow-hidden rounded-xl bg-white dark:bg-gray-800/50 shadow-sm border border-primary dark:border-primary ring-4 ring-primary/20 p-6 transition-transform duration-300 hover:-translate-y-2" data-delay="100">
+<video class="w-full aspect-video rounded-lg object-cover" autoplay loop muted playsinline aria-label="Vidéo de PC Gaming en boucle">
+    <source src="img/ssstik.io_1763544588701.mp4" type="video/mp4">
+    Votre navigateur ne supporte pas la balise vidéo.
+</video>
+                    <div class="p-5 flex flex-col flex-1">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-3xl">sports_esports</span>
+                            <h3 class="text-2xl font-bold leading-normal text-gray-900 dark:text-white">Montage PC Gaming</h3>
+                        </div>
+                        <p class="text-base font-normal leading-normal text-gray-600 dark:text-gray-400 mt-4">Notre spécialité ! Nous construisons des PC gaming sur mesure adaptés à vos besoins et votre budget.</p>
+                        <ul class="mt-4 space-y-2 text-gray-600 dark:text-gray-400">
+                            <li class="flex items-start gap-2">
+                                <span class="material-symbols-outlined text-primary text-lg mt-1">check_circle</span>
+                                <span>Configuration entièrement personnalisée</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="material-symbols-outlined text-primary text-lg mt-1">check_circle</span>
+                                <span>Composants haute performance</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="material-symbols-outlined text-primary text-lg mt-1">check_circle</span>
+                                <span>Gestion de câbles professionnelle</span>
+                            </li>
+                        </ul>
+                        <div class="mt-auto pt-6">
+                            <a href="#contact" class="flex w-full min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-all duration-300 hover:scale-105">
+                                <span class="truncate">Configurez Votre PC</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+<section class="relative py-16 sm:py-24 bg-background-light dark:bg-background-dark overflow-hidden"  id="laptops">
+        <div class="absolute -left-20 top-0 h-96 w-96 rounded-full bg-primary/5 blur-3xl"></div>
+        <div class="absolute right-0 bottom-0 h-96 w-96 rounded-full bg-blue-500/5 blur-3xl"></div>
+
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <div class="order-2 lg:order-1 animate-on-scroll flex flex-col gap-8">
+                    <div>
+                        <span class="inline-flex items-center gap-2 rounded-full bg-blue-100 dark:bg-blue-900/30 px-3 py-1 text-sm font-medium text-primary mb-4">
+                            <span class="relative flex h-2 w-2">
+                              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                              <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                            </span>
+                            Nouveaux Arrivages
+                        </span>
+                        <h2 class="text-4xl font-bold leading-tight text-gray-900 dark:text-white sm:text-5xl">
+                            PC Portables : <br />
+                            <span class="text-gradient">Performance & Mobilité</span>
+                        </h2>
+                        <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
+                            Que vous soyez étudiant, professionnel ou créateur, trouvez l'ordinateur portable qui correspond parfaitement à votre rythme de vie. Des Ultrabooks légers aux stations de travail puissantes.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="flex flex-col gap-2 p-4 rounded-lg bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
+                            <span class="material-symbols-outlined text-primary text-3xl">battery_charging_full</span>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Autonomie Longue Durée</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Tenez toute la journée sans chargeur.</p>
+                        </div>
+                        <div class="flex flex-col gap-2 p-4 rounded-lg bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
+                            <span class="material-symbols-outlined text-primary text-3xl">speed</span>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Vitesse Éclair</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Processeurs dernière génération & SSD.</p>
+                        </div>
+                        <div class="flex flex-col gap-2 p-4 rounded-lg bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
+                            <span class="material-symbols-outlined text-primary text-3xl">laptop_mac</span>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Design Ultra-Fin</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Légèreté et élégance sans compromis.</p>
+                        </div>
+                        <div class="flex flex-col gap-2 p-4 rounded-lg bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
+                            <span class="material-symbols-outlined text-primary text-3xl">hdr_on</span>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Écrans Haute Fidélité</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Couleurs vibrantes et détails précis.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                         <a href="#contact" class="flex w-full sm:w-auto justify-center items-center rounded-lg bg-primary px-8 py-3 text-base font-bold text-white transition-all hover:bg-primary/90 hover:scale-105 shadow-lg shadow-primary/25">
+                            Voir les Modèles en Magasin
+                         </a>
+                    </div>
+                </div>
+
+                <div class="order-1 lg:order-2 animate-on-scroll relative flex justify-center" data-delay="200">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-gray-200 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-full opacity-50 blur-2xl -z-10"></div>
+                    
+                    <img 
+                        src="img/f46ce382aaeef1a11c9c9bc075f0beb5-removebg-preview.png" 
+                        alt="PC Portable Premium TCS Informatique" 
+                        class="relative z-10 w-full max-w-lg drop-shadow-2xl animate-float transform rotate-1 hover:rotate-0 transition-transform duration-500"
+                    />
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="relative py-16 sm:py-24 bg-gray-50 dark:bg-gray-900 overflow-hidden" id="smartphones">
+        
+    <div class="absolute right-0 bottom-0 h-96 w-96 rounded-full bg-purple-500/10 blur-3xl"></div>
+    
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            <div class="order-1 animate-on-scroll relative flex justify-center" data-delay="100">
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] h-[100%] bg-gradient-to-tr from-purple-500/20 to-pink-500/20 rounded-full blur-3xl -z-10"></div>
+                
+                <img 
+                    src="img/efa4f53c495c279cf2700eba702edea8-removebg-preview.png" 
+                    alt="Smartphone Haut de Gamme" 
+                    class="relative z-10 w-[60%] sm:w-[50%] lg:w-[70%] drop-shadow-2xl animate-float transform rotate-3 hover:rotate-0 transition-transform duration-500"
+                />
+
+                <div class="absolute top-10 right-10 lg:right-20 bg-white dark:bg-gray-800 p-3 rounded-xl shadow-xl border border-purple-100 dark:border-purple-900 animate-float-delayed">
+                    <div class="flex flex-col items-center text-center">
+                        <span class="material-symbols-outlined text-purple-600 text-2xl mb-1">timer</span>
+                        <p class="text-xs font-bold text-gray-500 dark:text-gray-400">Réparation</p>
+                        <p class="text-sm font-black text-purple-600">Express</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-2 animate-on-scroll flex flex-col gap-8">
+                <div>
+                    <span class="inline-flex items-center gap-2 rounded-full bg-purple-100 dark:bg-purple-900/30 px-3 py-1 text-sm font-medium text-purple-600 dark:text-purple-300 mb-4">
+                        <span class="material-symbols-outlined text-base">stars</span>
+                        Expertise Mobile
+                    </span>
+                    <h2 class="text-4xl font-bold leading-tight text-gray-900 dark:text-white sm:text-5xl">
+                        Smartphones : <br />
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">Réparés & Reconditionnés</span>
+                    </h2>
+                    <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
+                        Votre téléphone est votre lien avec le monde. Nous le réparons en un temps record ou vous proposons des modèles reconditionnés certifiés comme neufs.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="flex items-start gap-3 p-3">
+                        <div class="p-2 rounded-lg bg-purple-100 dark:bg-purple-900/20 text-purple-600">
+                            <span class="material-symbols-outlined">smartphone</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Toutes Marques</h4>
+                            <p class="text-sm text-gray-500">Apple, Samsung, Huawei...</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-3">
+                        <div class="p-2 rounded-lg bg-pink-100 dark:bg-pink-900/20 text-pink-600">
+                            <span class="material-symbols-outlined">build_circle</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Pièces de Qualité</h4>
+                            <p class="text-sm text-gray-500">Écrans OLED & batteries certifiés.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-3">
+                        <div class="p-2 rounded-lg bg-purple-100 dark:bg-purple-900/20 text-purple-600">
+                            <span class="material-symbols-outlined">price_check</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Meilleurs Prix</h4>
+                            <p class="text-sm text-gray-500">Reconditionné jusqu'à -40%.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-3">
+                        <div class="p-2 rounded-lg bg-pink-100 dark:bg-pink-900/20 text-pink-600">
+                            <span class="material-symbols-outlined">verified</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Garantie Incluse</h4>
+                            <p class="text-sm text-gray-500">Sur ventes et réparations.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                     <a href="#contact" class="flex w-full sm:w-auto justify-center items-center rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-3 text-base font-bold text-white transition-all hover:shadow-lg hover:shadow-purple-500/25 hover:scale-105">
+                        Voir les Offres Mobiles
+                     </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <section class="py-16 sm:py-24 bg-background-light dark:bg-background-dark" id="accessoires">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col gap-4 text-center mb-12 animate-on-scroll">
+                <h2 class="text-3xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white sm:text-4xl">Vente d'Accessoires</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">Trouvez tout ce dont vous avez besoin pour compléter votre installation.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+                <div class="animate-on-scroll flex flex-col items-center gap-3 text-center" data-delay="100">
+                    <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg bg-gray-100 dark:bg-gray-800" 
+                         role="img" 
+                         aria-label="Claviers" 
+                         style='background-image: url("https://i.pinimg.com/1200x/c5/5a/c7/c55ac74497a5c4ea775e15f4ad38e043.jpg");'>
+                    </div>
+                    <p class="text-base font-medium leading-normal text-gray-800 dark:text-gray-200">Claviers</p>
+                </div>
+                <div class="animate-on-scroll flex flex-col items-center gap-3 text-center" data-delay="200">
+                    <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg bg-gray-100 dark:bg-gray-800" 
+                         role="img" 
+                         aria-label="Souris" 
+                         style='background-image: url("https://i.pinimg.com/736x/21/3d/b9/213db948302f9a7c6db9b4d29239657b.jpg");'>
+                    </div>
+                    <p class="text-base font-medium leading-normal text-gray-800 dark:text-gray-200">Souris</p>
+                </div>
+                <div class="animate-on-scroll flex flex-col items-center gap-3 text-center" data-delay="300">
+                    <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg bg-gray-100 dark:bg-gray-800" 
+                         role="img" 
+                         aria-label="Casques" 
+                         style='background-image: url("https://i.pinimg.com/736x/1c/18/d4/1c18d484ddb876408146064bbd4543b2.jpg");'>
+                    </div>
+                    <p class="text-base font-medium leading-normal text-gray-800 dark:text-gray-200">Casques</p>
+                </div>
+                <div class="animate-on-scroll flex flex-col items-center gap-3 text-center" data-delay="400">
+                    <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg bg-gray-100 dark:bg-gray-800" 
+                         role="img" 
+                         aria-label="Cables" 
+                         style='background-image: url("https://i.pinimg.com/736x/89/b0/93/89b093ba10cc816ae722c08702acc67a.jpg");'>
+                    </div>
+                    <p class="text-base font-medium leading-normal text-gray-800 dark:text-gray-200">Chargeurs & Câbles</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="py-16 sm:py-24 bg-background-light dark:bg-background-dark relative overflow-hidden" id="process">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full overflow-hidden pointer-events-none">
+            <div class="absolute top-[20%] left-[10%] w-72 h-72 bg-primary/5 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-[20%] right-[10%] w-72 h-72 bg-purple-500/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 animate-on-scroll">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl mb-4">
+                    Réparer n'a jamais été aussi simple
+                </h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400">
+                    Un processus transparent en 4 étapes pour remettre vos appareils à neuf sans stress.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+                
+                <div class="animate-on-scroll relative group" data-delay="100">
+                    <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 shadow-lg transition-all duration-300 h-full flex flex-col items-center text-center z-10 relative">
+                        <div class="absolute -top-4 bg-primary text-white font-bold w-8 h-8 rounded-lg flex items-center justify-center shadow-lg shadow-primary/40">1</div>
+                        
+                        <div class="w-16 h-16 bg-blue-50 dark:bg-gray-800 rounded-full flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <span class="material-symbols-outlined text-3xl">phonelink_setup</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Dépôt / Contact</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">
+                            Passez en boutique ou contactez-nous. Nous prenons en charge votre appareil immédiatement.
+                        </p>
+                    </div>
+                    
+                    <div class="hidden lg:block absolute top-1/2 -right-6 transform -translate-y-1/2 z-0 text-gray-300 dark:text-gray-700">
+                        <span class="material-symbols-outlined text-4xl">arrow_right_alt</span>
+                    </div>
+                </div>
+
+                <div class="animate-on-scroll relative group" data-delay="300">
+                    <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 shadow-lg transition-all duration-300 h-full flex flex-col items-center text-center z-10 relative">
+                        <div class="absolute -top-4 bg-white dark:bg-gray-800 border border-primary text-primary font-bold w-8 h-8 rounded-lg flex items-center justify-center">2</div>
+                        
+                        <div class="w-16 h-16 bg-blue-50 dark:bg-gray-800 rounded-full flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <span class="material-symbols-outlined text-3xl">troubleshoot</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Diagnostic</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">
+                            Nos experts analysent le problème. Vous recevez un devis précis avant toute intervention.
+                        </p>
+                    </div>
+
+                    <div class="hidden lg:block absolute top-1/2 -right-6 transform -translate-y-1/2 z-0 text-gray-300 dark:text-gray-700">
+                        <span class="material-symbols-outlined text-4xl">arrow_right_alt</span>
+                    </div>
+                </div>
+
+                <div class="animate-on-scroll relative group" data-delay="500">
+                    <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-primary ring-1 ring-primary/30 shadow-lg shadow-primary/10 hover:-translate-y-2 transition-all duration-300 h-full flex flex-col items-center text-center z-10 relative">
+                        <div class="absolute -top-4 bg-primary text-white font-bold w-8 h-8 rounded-lg flex items-center justify-center shadow-lg shadow-primary/40">3</div>
+                        
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-4 group-hover:rotate-12 transition-transform duration-300">
+                            <span class="material-symbols-outlined text-3xl">build</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Réparation</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">
+                            Nous réparons votre appareil avec des pièces de qualité. Rapide, propre et efficace.
+                        </p>
+                    </div>
+
+                    <div class="hidden lg:block absolute top-1/2 -right-6 transform -translate-y-1/2 z-0 text-gray-300 dark:text-gray-700">
+                        <span class="material-symbols-outlined text-4xl">arrow_right_alt</span>
+                    </div>
+                </div>
+
+                <div class="animate-on-scroll relative group" data-delay="700">
+                    <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 shadow-lg transition-all duration-300 h-full flex flex-col items-center text-center z-10 relative">
+                        <div class="absolute -top-4 bg-green-500 text-white font-bold w-8 h-8 rounded-lg flex items-center justify-center shadow-lg shadow-green-500/40">4</div>
+                        
+                        <div class="w-16 h-16 bg-green-50 dark:bg-green-900/20 rounded-full flex items-center justify-center text-green-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <span class="material-symbols-outlined text-3xl">sentiment_satisfied</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Récupération</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">
+                            Vous récupérez votre matériel 100% fonctionnel avec une garantie sur la réparation.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-16 text-center animate-on-scroll" data-delay="900">
+                <a href="#contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-gray-900 dark:bg-white dark:text-gray-900 rounded-full hover:bg-primary dark:hover:bg-primary dark:hover:text-white hover:scale-105 shadow-lg">
+                    <span>Lancer une réparation</span>
+                    <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 sm:py-24 bg-white dark:bg-gray-950 overflow-hidden" id="temoignages">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col items-center text-center mb-12 animate-on-scroll">
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-4">
+                     <h2 class="text-3xl font-bold leading-tight text-gray-900 dark:text-white sm:text-4xl">
+                        Ce que disent nos clients
+                    </h2>
+<a href="https://www.societe-des-avis-garantis.fr/tcsink/" target="_blank"><style>
+.sag_badge {margin: 5px;}
+.sag_badge * {-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-align:center}
+.sag_badge .container {width:100% !important; height:100% !important; position:relative !important; margin: 0 !important; min-width: unset !important;}
+.jsWidgetLargeNote, .sagInfo { position:absolute; top:0; left:0; width:100%; text-align:center; font-family: 'Oswald', Arial !important;font-weight:400;letter-spacing:0;}
+.jsWidgetLargeNote{ font-weight:700; font-size:22px; line-height:22px; letter-spacing:0; color:#1c5399; }
+.jsWidgetLargeNote big { line-height:inherit;font-weight: bold;font-size:38px; letter-spacing:-1.5px;font-family: 'Oswald', Arial !important;}
+/*BADGE COCARDE*/
+#sag_b_cocarde {
+    cursor: pointer;
+    display: block;
+    width: 125px;
+    height: 134px;
+    background: url(https://www.societe-des-avis-garantis.fr/wp-content/plugins/ag-core/images/widgets/cocarde.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+#sag_b_cocarde .jsWidgetLargeNote { top:45px; color:#ffffff; font-size:12px;}
+#sag_b_cocarde .jsWidgetLargeNote big { line-height:inherit;font-size:20px; color:white;}
+#sag_b_cocarde .sagInfo {
+    top: 66px;
+    font-size: 10.5px;
+    color: #ffffff;
+}
+</style>
+
+<div id="sag_b_cocarde" class="sag_badge" bis_skin_checked="1">
+    <div class="container" bis_skin_checked="1">
+        <div class="jsWidgetLargeNote" bis_skin_checked="1"><big>9.6</big>/10</div>
+        <div class="sagInfo" bis_skin_checked="1">45 avis</div>
+        <div class="animStarsCont" bis_skin_checked="1"><div class="animStars" style="width:100%" bis_skin_checked="1"></div></div>
+    </div>
+</div></a>
+                </div>
+                <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    La satisfaction de nos clients est notre meilleure publicité. Voici quelques retours d'expérience.
+                </p>
+            </div>
+
+            <div class="relative max-w-4xl mx-auto animate-on-scroll" data-delay="200">
+                
+                <button id="prevBtn" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-10 p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-white hover:text-primary hover:scale-110 transition-all">
+                    <span class="material-symbols-outlined">chevron_left</span>
+                </button>
+
+                <button id="nextBtn" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-10 p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-white hover:text-primary hover:scale-110 transition-all">
+                    <span class="material-symbols-outlined">chevron_right</span>
+                </button>
+
+                <div class="overflow-hidden rounded-2xl bg-gray-50 dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800 shadow-inner p-8 md:p-12">
+                    
+                    <div id="carouselTrack" class="flex transition-transform duration-500 ease-out">
+                        
+                        <div class="min-w-full px-4 flex flex-col items-center text-center">
+                            <div class="mb-6 text-primary/20">
+                                <span class=" text-6xl">TCS Informatique</span>
+                            </div>
+                            <p class="text-xl md:text-2xl font-medium text-gray-900 dark:text-white mb-6 italic">
+                                "J'ai apporté mon MacBook qui ne démarrait plus. Diagnostic fait dans la journée et réparation le lendemain à un prix très correct. Je recommande vivement pour leur sérieux !"
+                            </p>
+                            <div class="flex items-center gap-1 text-yellow-400 mb-2">
+                                <span class="material-symbols-outlined text-xl fill-current">star</span>
+                                <span class="material-symbols-outlined text-xl fill-current">star</span>
+                                <span class="material-symbols-outlined text-xl fill-current">star</span>
+                                <span class="material-symbols-outlined text-xl fill-current">star</span>
+                                <span class="material-symbols-outlined text-xl fill-current">star</span>
+                            </div>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Thomas D.</h4>
+                            <p class="text-sm text-gray-500">Réparation Ordinateur</p>
+                        </div>
+
+                        <div class="min-w-full px-4 flex flex-col items-center text-center">
+                            <div class="mb-6 text-primary/20">
+                                <span class=" text-6xl">TCS Informatique</span>
+                            </div>
+                            <p class="text-xl md:text-2xl font-medium text-gray-900 dark:text-white mb-6 italic">
+                                "Super équipe ! Ils m'ont conseillé pour le montage de mon PC Gamer. Le câble management est impeccable et les performances sont au rendez-vous. Merci TCS !"
+                            </p>
+                            <div class="flex items-center gap-1 text-yellow-400 mb-2">
+                                <span class="material-symbols-outlined text-xl fill-current">star</span>
+                                <span class="material-symbols-outlined text-xl fill-current">star</span>
+                                <span class="material-symbols-outlined text-xl fill-current">star</span>
+                                <span class="material-symbols-outlined text-xl fill-current">star</span>
+                                <span class="material-symbols-outlined text-xl fill-current">star</span>
+                            </div>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Sophie L.</h4>
+                            <p class="text-sm text-gray-500">Montage PC Gaming</p>
+                        </div>
+
+                        <div class="min-w-full px-4 flex flex-col items-center text-center">
+                            <div class="mb-6 text-primary/20">
+                                <span class=" text-6xl">TCS Informatique</span>
+                            </div>
+                            <p class="text-xl md:text-2xl font-medium text-gray-900 dark:text-white mb-6 italic">
+                                "Écran d'iPhone cassé remplacé en 30 minutes chrono. Le téléphone est comme neuf et l'équipe est très accueillante. C'est devenu mon adresse de référence."
+                            </p>
+                            <div class="flex items-center gap-1 text-yellow-400 mb-2">
+                                <span class="material-symbols-outlined text-xl fill-current">star</span>
+                                <span class="material-symbols-outlined text-xl fill-current">star</span>
+                                <span class="material-symbols-outlined text-xl fill-current">star</span>
+                                <span class="material-symbols-outlined text-xl fill-current">star</span>
+                                <span class="material-symbols-outlined text-xl fill-current">star</span>
+                            </div>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Karim B.</h4>
+                            <p class="text-sm text-gray-500">Réparation Mobile</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="flex justify-center gap-2 mt-6" id="carouselDots">
+                    </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.getElementById('carouselTrack');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const dotsContainer = document.getElementById('carouselDots');
+            
+            // Important : Vider le conteneur de points pour éviter les doublons
+            dotsContainer.innerHTML = '';
+
+            const slides = track.children;
+            const slideCount = slides.length;
+            let currentSlide = 0;
+            let autoPlayInterval;
+
+            // Création des points (dots)
+            for (let i = 0; i < slideCount; i++) {
+                const dot = document.createElement('button');
+                dot.className = `h-3 w-3 rounded-full transition-all duration-300 ${i === 0 ? 'bg-primary w-8' : 'bg-gray-300 dark:bg-gray-700'}`;
+                dot.ariaLabel = `Aller à l'avis ${i + 1}`;
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            }
+
+            const dots = dotsContainer.children;
+
+            function updateDots() {
+                for (let i = 0; i < dots.length; i++) {
+                    if (i === currentSlide) {
+                        dots[i].className = 'h-3 w-8 rounded-full bg-primary transition-all duration-300';
+                    } else {
+                        dots[i].className = 'h-3 w-3 rounded-full bg-gray-300 dark:bg-gray-700 transition-all duration-300 hover:bg-primary/50';
+                    }
+                }
+            }
+
+            function goToSlide(index) {
+                if (index < 0) index = slideCount - 1;
+                if (index >= slideCount) index = 0;
+                
+                currentSlide = index;
+                track.style.transform = `translateX(-${currentSlide * 100}%)`;
+                updateDots();
+                resetAutoPlay();
+            }
+
+            function nextSlide() {
+                goToSlide(currentSlide + 1);
+            }
+
+            function prevSlide() {
+                goToSlide(currentSlide - 1);
+            }
+
+            // Event Listeners
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
+            // Auto Play (5 secondes)
+            function startAutoPlay() {
+                autoPlayInterval = setInterval(nextSlide, 5000);
+            }
+
+            function resetAutoPlay() {
+                clearInterval(autoPlayInterval);
+                startAutoPlay();
+            }
+
+            // Arrêter le défilement au survol
+            track.parentElement.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
+            track.parentElement.addEventListener('mouseleave', startAutoPlay);
+
+            // Démarrage
+            startAutoPlay();
+        });
+    </script>
+
+    <section class="py-16 sm:py-24 bg-background-light dark:bg-background-dark" id="a-propos">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-on-scroll w-full h-full sm:h-96 lg:h-full bg-center bg-no-repeat rounded-xl" 
+                     role="img" 
+                     aria-label="Boutique" 
+                     style='background-image: url("img/OIP.webp");'>
+                </div>
+                <div class="animate-on-scroll flex flex-col gap-6" data-delay="200">
+                    <h2 class="text-3xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white sm:text-4xl">À Propos de Nous</h2>
+                    <p class="text-lg font-normal leading-normal text-gray-600 dark:text-gray-400">Fondée sur une passion pour la technologie, TCS Informatique s'est engagée à fournir des solutions fiables et un service client exceptionnel. Notre mission est de démystifier la technologie, en offrant des réparations expertes et des conseils honnêtes pour que vos appareils fonctionnent toujours au mieux.</p>
+                    <p class="text-lg font-normal leading-normal text-gray-600 dark:text-gray-400">Notre équipe de techniciens certifiés est dédiée à résoudre vos problèmes techniques, qu'il s'agisse d'un simple bug ou d'un montage de PC complexe.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 sm:py-24 bg-gray-50 dark:bg-gray-900" id="contact">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col gap-4 text-center mb-12 animate-on-scroll">
+                <h2 class="text-3xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white sm:text-4xl">Contactez-nous</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">Une question ? Besoin d'un devis ? Appelez-nous ou passez nous voir directement.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-1 gap-12 max-w-3xl mx-auto">
+                <div class="flex flex-col gap-8 animate-on-scroll">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 size-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary">
+                            <span class="material-symbols-outlined">location_on</span>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-900 dark:text-white">Adresse</h3>
+                            <p class="text-gray-600 dark:text-gray-400">106 Rue du Faubourg Bannier, 45000 Orléans</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 size-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary">
+                            <span class="material-symbols-outlined">call</span>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-900 dark:text-white">Téléphone</h3>
+                            <p class="text-gray-600 dark:text-gray-400">+33 02.38.54.91.51</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 size-10 flex items-center justify-center rounded-lg bg-primary/10 text-primary">
+                            <span class="material-symbols-outlined">mail</span>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-900 dark:text-white">Email</h3>
+                            <p class="text-gray-600 dark:text-gray-400">tcsloiret45@hotmail.fr</p>
+                        </div>
+                    </div>
+                    <div class="w-full aspect-video rounded-xl overflow-hidden mt-4 border border-gray-200 dark:border-gray-800">
+                        <iframe
+                            class="w-full h-full"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2659.873286162363!2d1.902969915650963!3d47.9097786792062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e4e4fc06f86391%3A0x6d09e395e3a890e0!2s106%20Rue%20du%20Faubourg%20Bannier%2C%2045000%20Orl%C3%A9ans%2C%20France!5e0!3m2!1sfr!2sfr!4v1678886638515!5m2!1sfr!2sfr"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<section class="py-12 bg-white dark:bg-gray-950 border-y border-gray-200 dark:border-gray-800 overflow-hidden">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-8 text-center">
+            <p class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">
+                Expertise Multi-Marques
+            </p>
+        </div>
+
+        <div class="relative m-auto max-w-[90%] overflow-hidden bg-white dark:bg-gray-950 before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-20 before:bg-gradient-to-r before:from-white dark:before:from-gray-950 before:to-transparent before:content-[''] after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-20 after:bg-gradient-to-l after:from-white dark:after:from-gray-950 after:to-transparent after:content-['']">
+            
+            <div class="animate-infinite-scroll flex w-[calc(250px*14)]">
+                
+                <div class="flex items-center justify-around w-[calc(250px*7)]">
+                    <div class="flex items-center justify-center gap-2 mx-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer">
+                        <span class="material-symbols-outlined text-4xl">laptop_mac</span>
+                        <span class="text-xl font-bold font-display">Apple</span>
+                    </div>
+                    <div class="flex items-center justify-center gap-2 mx-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer">
+                        <span class="material-symbols-outlined text-4xl text-blue-500">grid_view</span>
+                        <span class="text-xl font-bold font-display">Microsoft</span>
+                    </div>
+                    <div class="flex items-center justify-center gap-2 mx-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer">
+                        <span class="material-symbols-outlined text-4xl text-blue-700">smartphone</span>
+                        <span class="text-xl font-bold font-display">Samsung</span>
+                    </div>
+                    <div class="flex items-center justify-center gap-2 mx-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer">
+                        <span class="material-symbols-outlined text-4xl text-red-600">sports_esports</span>
+                        <span class="text-xl font-bold font-display">Asus ROG</span>
+                    </div>
+                    <div class="flex items-center justify-center gap-2 mx-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer">
+                        <span class="material-symbols-outlined text-4xl text-blue-400">dns</span>
+                        <span class="text-xl font-bold font-display">Dell</span>
+                    </div>
+                    <div class="flex items-center justify-center gap-2 mx-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer">
+                        <span class="material-symbols-outlined text-4xl text-cyan-600">print</span>
+                        <span class="text-xl font-bold font-display">HP</span>
+                    </div>
+                    <div class="flex items-center justify-center gap-2 mx-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer">
+                        <span class="material-symbols-outlined text-4xl text-orange-500">bolt</span>
+                        <span class="text-xl font-bold font-display">Xiaomi</span>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-around w-[calc(250px*7)]">
+                    <div class="flex items-center justify-center gap-2 mx-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer">
+                        <span class="material-symbols-outlined text-4xl">laptop_mac</span>
+                        <span class="text-xl font-bold font-display">Apple</span>
+                    </div>
+                    <div class="flex items-center justify-center gap-2 mx-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer">
+                        <span class="material-symbols-outlined text-4xl text-blue-500">grid_view</span>
+                        <span class="text-xl font-bold font-display">Microsoft</span>
+                    </div>
+                    <div class="flex items-center justify-center gap-2 mx-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer">
+                        <span class="material-symbols-outlined text-4xl text-blue-700">smartphone</span>
+                        <span class="text-xl font-bold font-display">Samsung</span>
+                    </div>
+                    <div class="flex items-center justify-center gap-2 mx-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer">
+                        <span class="material-symbols-outlined text-4xl text-red-600">sports_esports</span>
+                        <span class="text-xl font-bold font-display">Asus ROG</span>
+                    </div>
+                    <div class="flex items-center justify-center gap-2 mx-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer">
+                        <span class="material-symbols-outlined text-4xl text-blue-400">dns</span>
+                        <span class="text-xl font-bold font-display">Dell</span>
+                    </div>
+                    <div class="flex items-center justify-center gap-2 mx-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer">
+                        <span class="material-symbols-outlined text-4xl text-cyan-600">print</span>
+                        <span class="text-xl font-bold font-display">HP</span>
+                    </div>
+                    <div class="flex items-center justify-center gap-2 mx-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer">
+                        <span class="material-symbols-outlined text-4xl text-orange-500">bolt</span>
+                        <span class="text-xl font-bold font-display">Xiaomi</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    
+
+<footer class="bg-gray-900 dark:bg-gray-950 border-t border-gray-800">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10 text-gray-300">
+            
+            <div class="col-span-2 md:col-span-1 flex flex-col gap-4">
+                <a href="#" class="flex items-center gap-3 text-white">
+                    <div class="size-6 text-primary">
+                        <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H9v-2h6v2zm-3-7l-2.5-2.5L11 7l4 4-4 4-1.5-1.5L12 11z"/></svg>
+                    </div>
+                    <p class="text-lg font-bold leading-tight tracking-[-0.015em]">TCS Informatique</p>
+                </a>
+                <p class="text-sm">Votre expert en réparation et vente informatique à Orléans. Qualité, rapidité et expertise certifiée.</p>
+                <a href="#a-propos" class="text-sm font-semibold text-primary hover:text-primary/80 transition-colors">En savoir plus →</a>
+            </div>
+
+            <div class="flex flex-col gap-3">
+                <h4 class="text-base font-bold text-white mb-2">Navigation</h4>
+                <a href="#services" class="text-sm hover:text-white transition-colors">Services</a>
+                <a href="#laptops" class="text-sm hover:text-white transition-colors">PC Portables</a>
+                <a href="#accessoires" class="text-sm hover:text-white transition-colors">Accessoires</a>
+                <a href="img/devis.html" class="text-sm hover:text-white transition-colors">Demander un Devis</a>
+            </div>
+
+            <div class="flex flex-col gap-3">
+                <h4 class="text-base font-bold text-white mb-2">Services Clés</h4>
+                <a href="#services" class="text-sm hover:text-white transition-colors">Réparation Ordinateurs</a>
+                <a href="#services" class="text-sm hover:text-white transition-colors">Dépannage Mobiles</a>
+                <a href="#services" class="text-sm hover:text-white transition-colors">Montage PC Gaming</a>
+                <a href="#smartphones" class="text-sm hover:text-white transition-colors">Vente Reconditionné</a>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <h4 class="text-base font-bold text-white mb-2">Contactez-nous</h4>
+                <div class="flex items-center gap-2 text-sm">
+                    <span class="material-symbols-outlined text-primary text-lg">location_on</span>
+                    <p>106 Rue du Faubourg Bannier, 45000 Orléans</p>
+                </div>
+                <div class="flex items-center gap-2 text-sm">
+                    <span class="material-symbols-outlined text-primary text-lg">call</span>
+                    <p>+33 02.38.54.91.51</p>
+                </div>
+                <div class="flex items-center gap-2 text-sm">
+                    <span class="material-symbols-outlined text-primary text-lg">mail</span>
+                    <p>tcsloiret45@hotmail.fr</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="border-t border-gray-800 pt-8 text-center md:flex md:justify-between md:items-center">
+            <p class="text-sm text-gray-500">© 2024 TCS Informatique. Tous droits réservés.</p>
+            <div class="flex justify-center md:justify-end gap-6 mt-4 md:mt-0">
+                 <a href="https://tcsink.fr/content/2-mentions-legales" class="text-sm text-gray-500 hover:text-white transition-colors">Mentions Légales</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</div>
+</div>
+
+<script>
+    // Animation Script (Pour les éléments 'animate-on-scroll')
+    document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.dataset.delay || '0';
+                    entry.target.style.transitionDelay = `${delay}ms`;
+                    
+                    entry.target.classList.add('animate-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { 
+            threshold: 0.1
+        });
+        const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+        elementsToAnimate.forEach(el => {
+            observer.observe(el);
+        });
+    });
+</script>
+</body>
+</html>
