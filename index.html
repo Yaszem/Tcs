@@ -17,7 +17,7 @@
                 extend: {
                     colors: {
                         "primary": "#1152d4",
-                        "background-light": "#E5E7EB", 
+                        "background-light": "#E5E7EB",
                         "background-dark": "#101622",
                     },
                     fontFamily: {
@@ -76,19 +76,203 @@
         .animate-infinite-scroll:hover {
             animation-play-state: paused;
         }
-        /* Pulse ring boutique CTA */
-        @keyframes pulse-ring {
-            0% { transform: scale(1); opacity: 0.7; }
-            70% { transform: scale(1.15); opacity: 0; }
-            100% { transform: scale(1.15); opacity: 0; }
+
+        /* ===== BOUTIQUE SECTION ===== */
+        .boutique-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #185FA5;
+            background: #E6F1FB;
+            padding: 5px 14px;
+            border-radius: 99px;
+            margin-bottom: 1.25rem;
         }
-        .pulse-ring::before {
-            content: '';
-            position: absolute;
-            inset: -4px;
-            border-radius: inherit;
-            border: 2px solid #1152d4;
-            animation: pulse-ring 2s ease-out infinite;
+        .boutique-trust-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(0,0,0,0.07);
+        }
+        .dark .boutique-trust-row { border-bottom-color: rgba(255,255,255,0.07); }
+        .boutique-trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #6B7280;
+        }
+        .dark .boutique-trust-item { color: #9CA3AF; }
+        .boutique-trust-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #1D9E75;
+            flex-shrink: 0;
+        }
+        .boutique-section-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #9CA3AF;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .cat-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            border: 1px solid #E5E7EB;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+        .dark .cat-list { border-color: #1F2937; }
+        .cat-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 18px;
+            background: #fff;
+            transition: background 0.15s;
+        }
+        .dark .cat-row { background: #111827; }
+        .cat-row + .cat-row { border-top: 1px solid #F3F4F6; }
+        .dark .cat-row + .cat-row { border-top-color: #1F2937; }
+        .cat-icon-wrap {
+            width: 38px;
+            height: 38px;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .cat-info { flex: 1; min-width: 0; }
+        .cat-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 2px;
+        }
+        .dark .cat-name { color: #F9FAFB; }
+        .cat-desc {
+            font-size: 12px;
+            color: #6B7280;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .cat-tags {
+            display: flex;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+        .boutique-tag {
+            font-size: 11px;
+            padding: 3px 9px;
+            border-radius: 99px;
+            font-weight: 500;
+        }
+        .tag-blue  { background: #E6F1FB; color: #0C447C; }
+        .tag-green { background: #E1F5EE; color: #085041; }
+        .tag-amber { background: #FAEEDA; color: #633806; }
+        .tag-purple{ background: #EEEDFE; color: #3C3489; }
+        .boutique-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 1.5rem;
+        }
+        .boutique-metric-card {
+            background: #F9FAFB;
+            border-radius: 12px;
+            padding: 1.1rem 1.4rem;
+        }
+        .dark .boutique-metric-card { background: #1F2937; }
+        .boutique-metric-label {
+            font-size: 12px;
+            color: #6B7280;
+            margin-bottom: 4px;
+        }
+        .boutique-metric-val {
+            font-size: 26px;
+            font-weight: 700;
+            color: #111827;
+        }
+        .dark .boutique-metric-val { color: #F9FAFB; }
+        .boutique-metric-sub {
+            font-size: 11px;
+            color: #9CA3AF;
+            margin-top: 2px;
+        }
+        .boutique-cta {
+            background: #0C447C;
+            border-radius: 14px;
+            padding: 2rem 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .boutique-cta-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: rgba(181,212,244,0.8);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
+        }
+        .boutique-cta-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .boutique-cta-title span { text-decoration: underline; text-decoration-color: rgba(255,255,255,0.3); }
+        .boutique-cta-checks { display: flex; flex-wrap: wrap; gap: 14px; }
+        .boutique-cta-chk {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.65);
+        }
+        .boutique-chk-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #1D9E75;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .boutique-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #fff;
+            color: #0C447C;
+            border-radius: 10px;
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            white-space: nowrap;
+            flex-shrink: 0;
+            transition: opacity 0.15s, transform 0.15s;
+        }
+        .boutique-cta-btn:hover { opacity: 0.9; transform: scale(1.03); }
+
+        @media (max-width: 640px) {
+            .cat-tags { display: none; }
+            .boutique-metrics { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -157,8 +341,8 @@
                         </a>
                     </div>
                 </div>
-                <div class="w-full h-64 sm:h-80 lg:h-auto lg:aspect-[4/4] bg-center bg-no-repeat bg-cover rounded-xl opacity-0 animate-fade-in-up" 
-                     role="img" aria-label="PC Setup" 
+                <div class="w-full h-64 sm:h-80 lg:h-auto lg:aspect-[4/4] bg-center bg-no-repeat bg-cover rounded-xl opacity-0 animate-fade-in-up"
+                     role="img" aria-label="PC Setup"
                      style='background-image: url("https://i.pinimg.com/736x/cc/5f/9e/cc5f9e24ede00fccdbb17a4420d5348b.jpg"); border: 1px solid black; animation-delay: 300ms;'>
                 </div>
             </div>
@@ -322,7 +506,7 @@
                 <div class="order-1 animate-on-scroll relative flex justify-center" data-delay="100">
                     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] h-[100%] bg-gradient-to-tr from-purple-500/20 to-pink-500/20 rounded-full blur-3xl -z-10"></div>
                     <img src="img/efa4f53c495c279cf2700eba702edea8-removebg-preview.png" alt="Smartphone Haut de Gamme" class="relative z-10 w-[60%] sm:w-[50%] lg:w-[70%] drop-shadow-2xl animate-float transform rotate-3 hover:rotate-0 transition-transform duration-500"/>
-                    <div class="absolute top-10 right-10 lg:right-20 bg-white dark:bg-gray-800 p-3 rounded-xl shadow-xl border border-purple-100 dark:border-purple-900 animate-float-delayed">
+                    <div class="absolute top-10 right-10 lg:right-20 bg-white dark:bg-gray-800 p-3 rounded-xl shadow-xl border border-purple-100 dark:border-purple-900">
                         <div class="flex flex-col items-center text-center">
                             <span class="material-symbols-outlined text-purple-600 text-2xl mb-1">timer</span>
                             <p class="text-xs font-bold text-gray-500 dark:text-gray-400">Réparation</p>
@@ -398,179 +582,159 @@
         </div>
     </section>
 
-    <!-- ========== ★ NOUVELLE SECTION BOUTIQUE ========== -->
-    <section class="relative py-16 sm:py-24 bg-gray-50 dark:bg-gray-900 overflow-hidden" id="boutique">
-        <div class="absolute inset-0 pointer-events-none overflow-hidden">
-            <div class="absolute -top-20 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl"></div>
-        </div>
+    <!-- ========== BOUTIQUE (nouveau design) ========== -->
+    <section class="py-16 sm:py-24 bg-gray-50 dark:bg-gray-900" id="boutique">
+        <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
 
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="animate-on-scroll" style="text-align:left;">
+                <div class="boutique-eyebrow">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    Boutique en ligne — tcsink.fr
+                </div>
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl mb-3">Commandez vos matériels<br>&amp; consommables en ligne</h2>
+                <p class="text-base text-gray-500 dark:text-gray-400 mb-8 max-w-xl">Pièces détachées, périphériques et fournitures informatiques livrés rapidement partout en France.</p>
 
-            <!-- En-tête section -->
-            <div class="text-center mb-14 animate-on-scroll">
-                <span class="inline-flex items-center gap-2 rounded-full bg-indigo-100 dark:bg-indigo-900/30 px-4 py-1.5 text-sm font-semibold text-indigo-600 dark:text-indigo-300 mb-5">
-                    <span class="material-symbols-outlined text-base">storefront</span>
-                    Boutique en Ligne — tcsink.fr
-                </span>
-                <h2 class="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl mb-4">
-                    Achat de Matériels &amp; Consommables
-                </h2>
-                <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                    Commandez vos pièces détachées, fournitures et consommables informatiques directement en ligne. Livraison rapide partout en France.
-                </p>
-            </div>
+                <div class="boutique-trust-row">
+                    <span class="boutique-trust-item"><span class="boutique-trust-dot"></span>Paiement sécurisé</span>
+                    <span class="boutique-trust-item"><span class="boutique-trust-dot"></span>Livraison 48h France entière</span>
+                    <span class="boutique-trust-item"><span class="boutique-trust-dot"></span>Retour sous 30 jours</span>
+                    <span class="boutique-trust-item"><span class="boutique-trust-dot"></span>Support client dédié</span>
+                </div>
 
-            <!-- Grille 6 catégories -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+                <p class="boutique-section-label">Nos catégories</p>
 
-                <a href="https://tcsink.fr" target="_blank" rel="noopener noreferrer"
-                   class="animate-on-scroll group flex flex-col gap-4 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 hover:border-primary hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1" data-delay="100">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center justify-center size-14 rounded-xl bg-blue-100 dark:bg-blue-900/30 text-primary">
-                            <span class="material-symbols-outlined text-3xl">memory</span>
+                <div class="cat-list">
+
+                    <div class="cat-row">
+                        <div class="cat-icon-wrap" style="background:#E6F1FB;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#185FA5"><path d="M15 9H9v6h6V9zm-2 4h-2v-2h2v2zm8-2V9h-2V7c0-1.1-.9-2-2-2h-2V3h-2v2h-2V3H9v2H7c-1.1 0-2 .9-2 2v2H3v2h2v2H3v2h2v2c0 1.1.9 2 2 2h2v2h2v-2h2v2h2v-2h2c1.1 0 2-.9 2-2v-2h2v-2h-2v-2h2zm-4 6H7V7h10v10z"/></svg>
                         </div>
-                        <span class="material-symbols-outlined text-gray-300 group-hover:text-primary group-hover:translate-x-1 transition-all duration-300">arrow_forward</span>
+                        <div class="cat-info">
+                            <div class="cat-name">Composants PC</div>
+                            <div class="cat-desc">RAM, SSD, processeurs, cartes graphiques, cartes mères</div>
+                        </div>
+                        <div class="cat-tags">
+                            <span class="boutique-tag tag-blue">SSD</span>
+                            <span class="boutique-tag tag-blue">RAM</span>
+                            <span class="boutique-tag tag-blue">GPU</span>
+                        </div>
                     </div>
+
+                    <div class="cat-row">
+                        <div class="cat-icon-wrap" style="background:#E1F5EE;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#0F6E56"><path d="M3 5v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.11 0-2 .9-2 2zm4 14H5v-2h2v2zm0-4H5v-2h2v2zm0-4H5V9h2v2zm0-4H5V5h2v2zm10 12H9V5h8v14zm3 0h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V9h2v2zm0-4h-2V5h2v2z"/></svg>
+                        </div>
+                        <div class="cat-info">
+                            <div class="cat-name">Consommables</div>
+                            <div class="cat-desc">Cartouches d'encre, toners, papier et fournitures d'impression</div>
+                        </div>
+                        <div class="cat-tags">
+                            <span class="boutique-tag tag-green">Encres</span>
+                            <span class="boutique-tag tag-green">Toners</span>
+                            <span class="boutique-tag tag-green">Papier</span>
+                        </div>
+                    </div>
+
+                    <div class="cat-row">
+                        <div class="cat-icon-wrap" style="background:#E6F1FB;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#185FA5"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg>
+                        </div>
+                        <div class="cat-info">
+                            <div class="cat-name">Câbles &amp; Connectique</div>
+                            <div class="cat-desc">HDMI, USB-C, DisplayPort, adaptateurs et hubs multiports</div>
+                        </div>
+                        <div class="cat-tags">
+                            <span class="boutique-tag tag-blue">HDMI</span>
+                            <span class="boutique-tag tag-blue">USB-C</span>
+                            <span class="boutique-tag tag-blue">Hubs</span>
+                        </div>
+                    </div>
+
+                    <div class="cat-row">
+                        <div class="cat-icon-wrap" style="background:#EEEDFE;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#534AB7"><path d="M20 7H4c-1.1 0-2 .9-2 2v6c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-9 6H9v2H7v-2H5v-2h2V9h2v2h2v2zm4.5 1c-.83 0-1.5-.67-1.5-1.5S14.67 11 15.5 11s1.5.67 1.5 1.5S16.33 14 15.5 14zm3-3c-.83 0-1.5-.67-1.5-1.5S17.67 8 18.5 8s1.5.67 1.5 1.5S19.33 11 18.5 11z"/></svg>
+                        </div>
+                        <div class="cat-info">
+                            <div class="cat-name">Périphériques</div>
+                            <div class="cat-desc">Claviers, souris, casques, webcams et écrans</div>
+                        </div>
+                        <div class="cat-tags">
+                            <span class="boutique-tag tag-purple">Claviers</span>
+                            <span class="boutique-tag tag-purple">Souris</span>
+                            <span class="boutique-tag tag-purple">Casques</span>
+                        </div>
+                    </div>
+
+                    <div class="cat-row">
+                        <div class="cat-icon-wrap" style="background:#FAEEDA;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#854F0B"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4zM13 18h-2v-2h2v2zm0-4h-2V9h2v5z"/></svg>
+                        </div>
+                        <div class="cat-info">
+                            <div class="cat-name">Batteries &amp; Alimentation</div>
+                            <div class="cat-desc">Batteries PC/mobile, chargeurs et blocs d'alimentation</div>
+                        </div>
+                        <div class="cat-tags">
+                            <span class="boutique-tag tag-amber">Batteries</span>
+                            <span class="boutique-tag tag-amber">Chargeurs</span>
+                        </div>
+                    </div>
+
+                    <div class="cat-row">
+                        <div class="cat-icon-wrap" style="background:#E1F5EE;">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#0F6E56"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l5 2.18V11c0 3.5-2.33 6.79-5 7.93-2.67-1.14-5-4.43-5-7.93V7.18L12 5z"/></svg>
+                        </div>
+                        <div class="cat-info">
+                            <div class="cat-name">Logiciels &amp; Licences</div>
+                            <div class="cat-desc">Antivirus, Windows, Microsoft 365 et licences professionnelles</div>
+                        </div>
+                        <div class="cat-tags">
+                            <span class="boutique-tag tag-green">Windows</span>
+                            <span class="boutique-tag tag-green">Office</span>
+                            <span class="boutique-tag tag-green">Antivirus</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="boutique-metrics">
+                    <div class="boutique-metric-card">
+                        <div class="boutique-metric-label">Livraison</div>
+                        <div class="boutique-metric-val">48h</div>
+                        <div class="boutique-metric-sub">Partout en France</div>
+                    </div>
+                    <div class="boutique-metric-card">
+                        <div class="boutique-metric-label">Satisfaction client</div>
+                        <div class="boutique-metric-val">9.6 / 10</div>
+                        <div class="boutique-metric-sub">45 avis vérifiés</div>
+                    </div>
+                </div>
+
+                <div class="boutique-cta">
                     <div>
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary transition-colors">Composants PC</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">RAM, SSD, processeurs, cartes graphiques et cartes mères.</p>
-                    </div>
-                    <div class="flex flex-wrap gap-2 mt-1">
-                        <span class="text-xs bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300 px-2 py-0.5 rounded-full">SSD / HDD</span>
-                        <span class="text-xs bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300 px-2 py-0.5 rounded-full">RAM</span>
-                        <span class="text-xs bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300 px-2 py-0.5 rounded-full">GPU</span>
-                    </div>
-                </a>
-
-                <a href="https://tcsink.fr" target="_blank" rel="noopener noreferrer"
-                   class="animate-on-scroll group flex flex-col gap-4 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 hover:-translate-y-1" data-delay="200">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center justify-center size-14 rounded-xl bg-blue-100 dark:bg-blue-900/30 text-blue-600">
-                            <span class="material-symbols-outlined text-3xl">ink_highlighter</span>
-                        </div>
-                        <span class="material-symbols-outlined text-gray-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all duration-300">arrow_forward</span>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1 group-hover:text-blue-600 transition-colors">Consommables</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Cartouches d'encre, toners, papier et fournitures d'impression.</p>
-                    </div>
-                    <div class="flex flex-wrap gap-2 mt-1">
-                        <span class="text-xs bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300 px-2 py-0.5 rounded-full">Encres</span>
-                        <span class="text-xs bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300 px-2 py-0.5 rounded-full">Toners</span>
-                        <span class="text-xs bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300 px-2 py-0.5 rounded-full">Papier</span>
-                    </div>
-                </a>
-
-                <a href="https://tcsink.fr" target="_blank" rel="noopener noreferrer"
-                   class="animate-on-scroll group flex flex-col gap-4 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 hover:-translate-y-1" data-delay="300">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center justify-center size-14 rounded-xl bg-blue-100 dark:bg-blue-900/30 text-blue-600">
-                            <span class="material-symbols-outlined text-3xl">cable</span>
-                        </div>
-                        <span class="material-symbols-outlined text-gray-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all duration-300">arrow_forward</span>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1 group-hover:text-blue-600 transition-colors">Câbles & Connectique</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">HDMI, USB-C, DisplayPort, adaptateurs et hubs multiports.</p>
-                    </div>
-                    <div class="flex flex-wrap gap-2 mt-1">
-                        <span class="text-xs bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300 px-2 py-0.5 rounded-full">HDMI</span>
-                        <span class="text-xs bg-bluee-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300 px-2 py-0.5 rounded-full">USB-C</span>
-                        <span class="text-xs bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300 px-2 py-0.5 rounded-full">Hubs</span>
-                    </div>
-                </a>
-
-                <a href="https://tcsink.fr" target="_blank" rel="noopener noreferrer"
-                   class="animate-on-scroll group flex flex-col gap-4 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 hover:border-blue-500 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 hover:-translate-y-1" data-delay="400">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center justify-center size-14 rounded-xl bg-blue-100 dark:bg-blue-900/30 text-blue-600">
-                            <span class="material-symbols-outlined text-3xl">headset_mic</span>
-                        </div>
-                        <span class="material-symbols-outlined text-gray-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all duration-300">arrow_forward</span>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1 group-hover:text-blue-600 transition-colors">Périphériques</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Claviers, souris, casques, webcams et écrans de qualité.</p>
-                    </div>
-                    <div class="flex flex-wrap gap-2 mt-1">
-                        <span class="text-xs bg-blue-50 dark:bg-bleu-900/20 text-blue-600 dark:text-blue-300 px-2 py-0.5 rounded-full">Claviers</span>
-                        <span class="text-xs bg-blue-50 dark:bg-bleu-900/20 text-blue-600 dark:text-blue-300 px-2 py-0.5 rounded-full">Souris</span>
-                        <span class="text-xs bg-blue-50 dark:bg-bleu-900/20 text-blue-600 dark:text-blue-300 px-2 py-0.5 rounded-full">Casques</span>
-                    </div>
-                </a>
-
-                <a href="https://tcsink.fr" target="_blank" rel="noopener noreferrer"
-                   class="animate-on-scroll group flex flex-col gap-4 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 hover:border-blue-500 hover:shadow-xl hover:shadow-red-500/10 transition-all duration-300 hover:-translate-y-1" data-delay="500">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center justify-center size-14 rounded-xl bg-blue-100 dark:bg-blue-900/30 text-blue-600">
-                            <span class="material-symbols-outlined text-3xl">battery_charging_full</span>
-                        </div>
-                        <span class="material-symbols-outlined text-gray-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all duration-300">arrow_forward</span>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1 group-hover:text-blue-600 transition-colors">Batteries & Alimentation</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Batteries PC/mobile, chargeurs et blocs d'alimentation.</p>
-                    </div>
-                    <div class="flex flex-wrap gap-2 mt-1">
-                        <span class="text-xs bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300 px-2 py-0.5 rounded-full">Batteries</span>
-                        <span class="text-xs bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300 px-2 py-0.5 rounded-full">Chargeurs</span>
-                        <span class="text-xs bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300 px-2 py-0.5 rounded-full">Alim. PC</span>
-                    </div>
-                </a>
-
-                <a href="https://tcsink.fr" target="_blank" rel="noopener noreferrer"
-                   class="animate-on-scroll group flex flex-col gap-4 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6 hover:border-cyan-500 hover:shadow-xl hover:shadow-cyan-500/10 transition-all duration-300 hover:-translate-y-1" data-delay="600">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center justify-center size-14 rounded-xl bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600">
-                            <span class="material-symbols-outlined text-3xl">security</span>
-                        </div>
-                        <span class="material-symbols-outlined text-gray-300 group-hover:text-cyan-500 group-hover:translate-x-1 transition-all duration-300">arrow_forward</span>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1 group-hover:text-cyan-600 transition-colors">Logiciels & Licences</h3>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">Antivirus, Windows, Microsoft 365 et licences professionnelles.</p>
-                    </div>
-                    <div class="flex flex-wrap gap-2 mt-1">
-                        <span class="text-xs bg-cyan-50 dark:bg-cyan-900/20 text-cyan-600 dark:text-cyan-300 px-2 py-0.5 rounded-full">Windows</span>
-                        <span class="text-xs bg-cyan-50 dark:bg-cyan-900/20 text-cyan-600 dark:text-cyan-300 px-2 py-0.5 rounded-full">Office</span>
-                        <span class="text-xs bg-cyan-50 dark:bg-cyan-900/20 text-cyan-600 dark:text-cyan-300 px-2 py-0.5 rounded-full">Antivirus</span>
-                    </div>
-                </a>
-
-            </div>
-
-            <!-- Bannière CTA principale -->
-            <div class="animate-on-scroll" data-delay="300">
-                <div class="relative rounded-2xl overflow-hidden bg-gradient-to-r from-primary via-indigo-600 to-blue-700 p-8 md:p-12 shadow-2xl shadow-primary/30">
-                    <!-- Motif décoratif -->
-                    <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 20%, white 1px, transparent 1px), radial-gradient(circle at 60% 80%, white 1px, transparent 1px); background-size: 60px 60px;"></div>
-                    <div class="absolute -right-10 -top-10 w-48 h-48 rounded-full bg-white/5 blur-2xl"></div>
-                    <div class="absolute -left-10 -bottom-10 w-48 h-48 rounded-full bg-white/5 blur-2xl"></div>
-
-                    <div class="relative flex flex-col md:flex-row items-center justify-between gap-8">
-                        <div class="text-center md:text-left">
-                            <div class="flex items-center justify-center md:justify-start gap-2 mb-3">
-                                <span class="material-symbols-outlined text-white/80 text-2xl">local_shipping</span>
-                                <span class="text-white/80 text-sm font-semibold uppercase tracking-widest">Livraison rapide France entière</span>
-                            </div>
-                            <h3 class="text-2xl md:text-3xl font-black text-white mb-3">
-                                Toute notre boutique sur <span class="underline decoration-white/50">tcsink.fr</span>
-                            </h3>
-                            <div class="flex flex-wrap justify-center md:justify-start gap-4 text-white/80 text-sm">
-                                <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-base text-green-300">check_circle</span> Paiement sécurisé</span>
-                                <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-base text-green-300">check_circle</span> Retour 30 jours</span>
-                                <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-base text-green-300">check_circle</span> Support client dédié</span>
-                            </div>
-                        </div>
-                        <div class="flex-shrink-0">
-                            <a href="https://tcsink.fr" target="_blank" rel="noopener noreferrer"
-                               class="relative inline-flex items-center gap-3 px-8 py-4 bg-white text-primary font-black text-base rounded-xl transition-all duration-300 hover:scale-105  pulse-ring">
-                                <span class="material-symbols-outlined text-xl">open_in_new</span>
-                                Visiter tcsink.fr
-                            </a>
+                        <div class="boutique-cta-label">Notre boutique en ligne</div>
+                        <div class="boutique-cta-title">Tout disponible sur <span>tcsink.fr</span></div>
+                        <div class="boutique-cta-checks">
+                            <span class="boutique-cta-chk">
+                                <span class="boutique-chk-dot">
+                                    <svg viewBox="0 0 10 10" fill="none" width="8" height="8"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.5"/></svg>
+                                </span>Paiement sécurisé
+                            </span>
+                            <span class="boutique-cta-chk">
+                                <span class="boutique-chk-dot">
+                                    <svg viewBox="0 0 10 10" fill="none" width="8" height="8"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.5"/></svg>
+                                </span>Retour 30 jours
+                            </span>
+                            <span class="boutique-cta-chk">
+                                <span class="boutique-chk-dot">
+                                    <svg viewBox="0 0 10 10" fill="none" width="8" height="8"><path d="M2 5l2.5 2.5L8 3" stroke="white" stroke-width="1.5"/></svg>
+                                </span>Support dédié
+                            </span>
                         </div>
                     </div>
+                    <a href="https://tcsink.fr" target="_blank" rel="noopener noreferrer" class="boutique-cta-btn">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                        Visiter tcsink.fr
+                    </a>
                 </div>
             </div>
 
@@ -649,7 +813,7 @@
         </div>
     </section>
 
-    <!-- ========== TÉMOIGNAGES (6 avis) ========== -->
+    <!-- ========== TÉMOIGNAGES ========== -->
     <section class="py-16 sm:py-24 bg-white dark:bg-gray-950 overflow-hidden" id="temoignages">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col items-center text-center mb-12 animate-on-scroll">
@@ -667,15 +831,15 @@
 #sag_b_cocarde .jsWidgetLargeNote big { line-height:inherit;font-size:20px; color:white;}
 #sag_b_cocarde .sagInfo { top: 66px; font-size: 10.5px; color: #ffffff; }
 </style>
-<div id="sag_b_cocarde" class="sag_badge" bis_skin_checked="1">
-    <div class="container" bis_skin_checked="1">
-        <div class="jsWidgetLargeNote" bis_skin_checked="1"><big>9.6</big>/10</div>
-        <div class="sagInfo" bis_skin_checked="1">45 avis</div>
-        <div class="animStarsCont" bis_skin_checked="1"><div class="animStars" style="width:100%" bis_skin_checked="1"></div></div>
+<div id="sag_b_cocarde" class="sag_badge">
+    <div class="container">
+        <div class="jsWidgetLargeNote"><big>9.6</big>/10</div>
+        <div class="sagInfo">45 avis</div>
+        <div class="animStarsCont"><div class="animStars" style="width:100%"></div></div>
     </div>
 </div></a>
                 </div>
-                <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">La satisfaction de nos clients est notre meilleure publicité. Voici quelques retours d'expérience.</p>
+                <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">La satisfaction de nos clients est notre meilleure publicité.</p>
             </div>
 
             <div class="relative max-w-4xl mx-auto animate-on-scroll" data-delay="200">
@@ -688,88 +852,62 @@
 
                 <div class="overflow-hidden rounded-2xl bg-gray-50 dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800 shadow-inner p-8 md:p-12">
                     <div id="carouselTrack" class="flex transition-transform duration-500 ease-out">
-
-                        <!-- Avis 1 -->
                         <div class="min-w-full px-4 flex flex-col items-center text-center">
                             <div class="mb-6 text-primary/20"><span class="text-6xl">TCS Loiret</span></div>
-                            <p class="text-xl md:text-2xl font-medium text-gray-900 dark:text-white mb-6 italic">
-                                "J'ai apporté mon MacBook qui ne démarrait plus. Diagnostic fait dans la journée et réparation le lendemain à un prix très correct. Je recommande vivement pour leur sérieux !"
-                            </p>
+                            <p class="text-xl md:text-2xl font-medium text-gray-900 dark:text-white mb-6 italic">"J'ai apporté mon MacBook qui ne démarrait plus. Diagnostic fait dans la journée et réparation le lendemain à un prix très correct. Je recommande vivement pour leur sérieux !"</p>
                             <div class="flex items-center gap-1 text-yellow-400 mb-2">
-                                <span class="material-symbols-outlined text-xl fill-current">star</span><span class="material-symbols-outlined text-xl fill-current">star</span><span class="material-symbols-outlined text-xl fill-current">star</span><span class="material-symbols-outlined text-xl fill-current">star</span><span class="material-symbols-outlined text-xl fill-current">star</span>
+                                <span class="material-symbols-outlined text-xl">star</span><span class="material-symbols-outlined text-xl">star</span><span class="material-symbols-outlined text-xl">star</span><span class="material-symbols-outlined text-xl">star</span><span class="material-symbols-outlined text-xl">star</span>
                             </div>
                             <h4 class="font-bold text-gray-900 dark:text-white">Thomas D.</h4>
                             <p class="text-sm text-gray-500">Réparation Ordinateur</p>
                         </div>
-
-                        <!-- Avis 2 -->
                         <div class="min-w-full px-4 flex flex-col items-center text-center">
                             <div class="mb-6 text-primary/20"><span class="text-6xl">TCS Loiret</span></div>
-                            <p class="text-xl md:text-2xl font-medium text-gray-900 dark:text-white mb-6 italic">
-                                "Super équipe ! Ils m'ont conseillé pour le montage de mon PC Gamer. Le câble management est impeccable et les performances sont au rendez-vous. Merci TCS !"
-                            </p>
+                            <p class="text-xl md:text-2xl font-medium text-gray-900 dark:text-white mb-6 italic">"Super équipe ! Ils m'ont conseillé pour le montage de mon PC Gamer. Le câble management est impeccable et les performances sont au rendez-vous. Merci TCS !"</p>
                             <div class="flex items-center gap-1 text-yellow-400 mb-2">
-                                <span class="material-symbols-outlined text-xl fill-current">star</span><span class="material-symbols-outlined text-xl fill-current">star</span><span class="material-symbols-outlined text-xl fill-current">star</span><span class="material-symbols-outlined text-xl fill-current">star</span><span class="material-symbols-outlined text-xl fill-current">star</span>
+                                <span class="material-symbols-outlined text-xl">star</span><span class="material-symbols-outlined text-xl">star</span><span class="material-symbols-outlined text-xl">star</span><span class="material-symbols-outlined text-xl">star</span><span class="material-symbols-outlined text-xl">star</span>
                             </div>
                             <h4 class="font-bold text-gray-900 dark:text-white">Sophie L.</h4>
                             <p class="text-sm text-gray-500">Montage PC Gaming</p>
                         </div>
-
-                        <!-- Avis 3 -->
                         <div class="min-w-full px-4 flex flex-col items-center text-center">
                             <div class="mb-6 text-primary/20"><span class="text-6xl">TCS Loiret</span></div>
-                            <p class="text-xl md:text-2xl font-medium text-gray-900 dark:text-white mb-6 italic">
-                                "Écran d'iPhone cassé remplacé en 30 minutes chrono. Le téléphone est comme neuf et l'équipe est très accueillante. C'est devenu mon adresse de référence."
-                            </p>
+                            <p class="text-xl md:text-2xl font-medium text-gray-900 dark:text-white mb-6 italic">"Écran d'iPhone cassé remplacé en 30 minutes chrono. Le téléphone est comme neuf et l'équipe est très accueillante. C'est devenu mon adresse de référence."</p>
                             <div class="flex items-center gap-1 text-yellow-400 mb-2">
-                                <span class="material-symbols-outlined text-xl fill-current">star</span><span class="material-symbols-outlined text-xl fill-current">star</span><span class="material-symbols-outlined text-xl fill-current">star</span><span class="material-symbols-outlined text-xl fill-current">star</span><span class="material-symbols-outlined text-xl fill-current">star</span>
+                                <span class="material-symbols-outlined text-xl">star</span><span class="material-symbols-outlined text-xl">star</span><span class="material-symbols-outlined text-xl">star</span><span class="material-symbols-outlined text-xl">star</span><span class="material-symbols-outlined text-xl">star</span>
                             </div>
                             <h4 class="font-bold text-gray-900 dark:text-white">Karim B.</h4>
                             <p class="text-sm text-gray-500">Réparation Mobile</p>
                         </div>
-
-                        <!-- Avis 4 -->
                         <div class="min-w-full px-4 flex flex-col items-center text-center">
                             <div class="mb-6 text-primary/20"><span class="text-6xl">TCS Loiret</span></div>
-                            <p class="text-xl md:text-2xl font-medium text-gray-900 dark:text-white mb-6 italic">
-                                "J'avais besoin d'un PC pour le travail en urgence. En moins de 48h, TCS m'a proposé un reconditionné parfait état, à prix imbattable. Service vraiment au top !"
-                            </p>
+                            <p class="text-xl md:text-2xl font-medium text-gray-900 dark:text-white mb-6 italic">"J'avais besoin d'un PC pour le travail en urgence. En moins de 48h, TCS m'a proposé un reconditionné parfait état, à prix imbattable. Service vraiment au top !"</p>
                             <div class="flex items-center gap-1 text-yellow-400 mb-2">
-                                <span class="material-symbols-outlined text-xl fill-current">star</span><span class="material-symbols-outlined text-xl fill-current">star</span><span class="material-symbols-outlined text-xl fill-current">star</span><span class="material-symbols-outlined text-xl fill-current">star</span><span class="material-symbols-outlined text-xl fill-current">star</span>
+                                <span class="material-symbols-outlined text-xl">star</span><span class="material-symbols-outlined text-xl">star</span><span class="material-symbols-outlined text-xl">star</span><span class="material-symbols-outlined text-xl">star</span><span class="material-symbols-outlined text-xl">star</span>
                             </div>
                             <h4 class="font-bold text-gray-900 dark:text-white">Marie-Claire F.</h4>
                             <p class="text-sm text-gray-500">Achat PC Reconditionné</p>
                         </div>
-
-                        <!-- Avis 5 -->
                         <div class="min-w-full px-4 flex flex-col items-center text-center">
                             <div class="mb-6 text-primary/20"><span class="text-6xl">TCS Loiret</span></div>
-                            <p class="text-xl md:text-2xl font-medium text-gray-900 dark:text-white mb-6 italic">
-                                "Mon disque dur a lâché avec des données importantes. L'équipe a réussi à tout récupérer ! Professionnalisme et réactivité exemplaires. Je ne pouvais pas espérer mieux."
-                            </p>
+                            <p class="text-xl md:text-2xl font-medium text-gray-900 dark:text-white mb-6 italic">"Mon disque dur a lâché avec des données importantes. L'équipe a réussi à tout récupérer ! Professionnalisme et réactivité exemplaires."</p>
                             <div class="flex items-center gap-1 text-yellow-400 mb-2">
-                                <span class="material-symbols-outlined text-xl fill-current">star</span><span class="material-symbols-outlined text-xl fill-current">star</span><span class="material-symbols-outlined text-xl fill-current">star</span><span class="material-symbols-outlined text-xl fill-current">star</span><span class="material-symbols-outlined text-xl fill-current">star</span>
+                                <span class="material-symbols-outlined text-xl">star</span><span class="material-symbols-outlined text-xl">star</span><span class="material-symbols-outlined text-xl">star</span><span class="material-symbols-outlined text-xl">star</span><span class="material-symbols-outlined text-xl">star</span>
                             </div>
                             <h4 class="font-bold text-gray-900 dark:text-white">Laurent P.</h4>
                             <p class="text-sm text-gray-500">Récupération de Données</p>
                         </div>
-
-                        <!-- Avis 6 -->
                         <div class="min-w-full px-4 flex flex-col items-center text-center">
                             <div class="mb-6 text-primary/20"><span class="text-6xl">TCS Loiret</span></div>
-                            <p class="text-xl md:text-2xl font-medium text-gray-900 dark:text-white mb-6 italic">
-                                "Commandé des cartouches d'encre sur tcsink.fr, reçues en 2 jours, emballage soigné. En boutique le personnel est super sympa et de bon conseil. Je reviendrai sans hésiter !"
-                            </p>
+                            <p class="text-xl md:text-2xl font-medium text-gray-900 dark:text-white mb-6 italic">"Commandé des cartouches d'encre sur tcsink.fr, reçues en 2 jours, emballage soigné. En boutique le personnel est super sympa et de bon conseil. Je reviendrai sans hésiter !"</p>
                             <div class="flex items-center gap-1 text-yellow-400 mb-2">
-                                <span class="material-symbols-outlined text-xl fill-current">star</span><span class="material-symbols-outlined text-xl fill-current">star</span><span class="material-symbols-outlined text-xl fill-current">star</span><span class="material-symbols-outlined text-xl fill-current">star</span><span class="material-symbols-outlined text-xl fill-current">star</span>
+                                <span class="material-symbols-outlined text-xl">star</span><span class="material-symbols-outlined text-xl">star</span><span class="material-symbols-outlined text-xl">star</span><span class="material-symbols-outlined text-xl">star</span><span class="material-symbols-outlined text-xl">star</span>
                             </div>
                             <h4 class="font-bold text-gray-900 dark:text-white">Nadia K.</h4>
                             <p class="text-sm text-gray-500">Achat Consommables en ligne</p>
                         </div>
-
                     </div>
                 </div>
-
                 <div class="flex justify-center gap-2 mt-6" id="carouselDots"></div>
             </div>
         </div>
